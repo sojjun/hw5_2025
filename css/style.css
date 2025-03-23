@@ -1,0 +1,196 @@
+/* 1. keyframe animation for logo */
+
+@keyframes logoAnimation {
+    0% {
+        width: 25px;
+        opacity: 0;
+    }
+      100% {
+        width: 475px;
+        opacity: 1;
+    }
+    logo{
+        animation: grow 5s;
+        width: 475px;
+    }
+}
+
+
+
+/* 2. Added poppins font to body, background image and backup color */
+body { 
+    font-family: "Poppins", serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+
+/* 3. Editited header tag to ceenter items in a column*/
+
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/* 4. Made the nav_links class use flex */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 5. styled nav links to keep the same color like the image*/
+.nav_links a:link,
+.nav_links a:visited {
+    color: #1000FF;
+}
+
+/* 6. styled the header to have a rounded corners, change background color, add padding and a boarder color  */
+.card > header {
+    background: #288088;
+    border: solid 2px #45adad;
+    padding: 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+
+}
+/* 6. changed .card boarder top left and right radius from starter.css to align with header */
+.card {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+
+
+/* 7.  Changed the card cass to flex the cards at inital size of 450px  */
+.card {
+    flex-basis: 450px;
+}
+
+
+/* 8. Changed pricing to flex, making sure the content wraps and is centered  */
+.pricing {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+/* 9. Adding a stylized boarder to gallery class an qadding margins */
+
+.gallery img {
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+    height: 250px; /* adjusted height to match photos */
+  }
+
+/* 10. Added flex to gallery class to wrap at different screen sizes. Centered images to match image. */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+@media screen and (min-width: 900px) {
+
+    /* 11. edit header to match images by changing flex direction to row */
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row nowrap;
+    }
+
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* 12. Changed the card and pricing class with flex-property at 275px */
+
+    .pricing {
+        display: flex;
+        align-items: center;
+    }
+
+    .card {
+        flex-basis: 275px;
+    }
+
+    /* 13. Fixed the position header so it is visibile when scroll on screen */
+
+    body > header {
+        position: fixed;
+        width: 100%;
+    }
+
+    main {
+        padding-top: 6rem;
+    }
+}
+
+/* 14. logo has no animation if prefers-reduced-motion is checked.  */
+@media all and (prefers-reduced-motion: reduce){
+
+    .logo{
+        animation: none;
+    }
+}
+/* 15. added media print for when page is printed in portrait mode */
+@media print and (orientation: portrait) {
+
+    /* 15. changed body font to arial and backup og helvetica when page is in printed portrait mode */
+
+    body{
+        font-family: Arial, Helvetica;
+    }
+
+    /* 16. removed bacgrpund image*/
+
+    body {
+        background-image: none;
+    }
+
+    /* 17. changed spacing for nav links to align with image */
+
+    nav{
+        width: 100%;
+    }
+    .nav_links{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    /* 18. aligned pricing class elements along the bottom */
+
+    .pricing{
+        display: flex;
+        align-items: end;
+        flex-wrap: nowrap;
+    }
+
+    /*19. added a solid 2px colored boarder and use flex basis on card elements  */
+
+    .card{
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* 20. hide the gallery */
+
+    .gallery{
+        display: none;
+    }
+
+    /* 21. added a humbs up in the cards*/
+
+    .card li:nth-child(2)::after {
+        content: "👍";
+    }
+}
