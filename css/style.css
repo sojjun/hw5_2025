@@ -1,4 +1,4 @@
-/* 1. keyframe animation for logo */
+/* 1. keyframe animation for logo and resizing */
 
 @keyframes logoAnimation {
     0% {
@@ -10,10 +10,10 @@
         opacity: 1;
     }
 }
-
-.logo {
-    animation: logoAnimation 5s;
-    width: 475px;
+/* make sure I am targeting id = logo from html */
+#logo {
+    display: inline-block;
+    animation: logoAnimation 5s ease-in-out forwards;
 }
 
 
